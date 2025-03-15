@@ -1,0 +1,5 @@
+TEK "HJ",
+Sticker 'Metal Rat',
+TEK-9 Sticker,
+KARAMBIT 'Scratch',
+'Reforged' Weapon Case
