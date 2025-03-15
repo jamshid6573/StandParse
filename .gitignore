@@ -10,3 +10,6 @@ venv/
 *.pth
 *.so
 *.dylib
+
+__pycache__/
+*.log
