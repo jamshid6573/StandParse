@@ -2,14 +2,16 @@
 easyocr_models/
 easyocr_models/craft_mlt_25k.pth
 easyocr_models/english_g2.pth
-
 # Игнорируем виртуальное окружение
 venv/
 
-# Игнорируем большие файлы
+# Игнорируем большие модели
 *.pth
 *.so
 *.dylib
+*.bin
+*.pack
 
+# Игнорируем временные файлы
 __pycache__/
 *.log
