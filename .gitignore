@@ -1,4 +1,12 @@
-venv/
+
 easyocr_models/
 easyocr_models/craft_mlt_25k.pth
 easyocr_models/english_g2.pth
+
+# Игнорируем виртуальное окружение
+venv/
+
+# Игнорируем большие файлы
+*.pth
+*.so
+*.dylib
