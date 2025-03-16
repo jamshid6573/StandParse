@@ -21,12 +21,12 @@ class ImageSplitter:
         screenshot = Image.open(image_path)
         width, height = screenshot.size
         
-        # Вычисляем размеры карточки
+        # Вычисляем размеры карточки для сетки 3×4
         card_width = width // 4
-        card_height = height // 2
+        card_height = height // 3
         
-        # Обрабатываем все карточки в изображении
-        for row in range(2):
+        # Обрабатываем все карточки в изображении (3 строки, 4 столбца)
+        for row in range(3):  # Изменено с 2 на 3
             for col in range(4):
                 card = self._crop_card(screenshot, card_width, card_height, row, col)
                 resized_card = self._resize_card(card, card_width, card_height)
@@ -68,4 +68,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

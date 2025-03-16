@@ -7,9 +7,9 @@ class ImageCropper:
         self.output_folder = output_folder
         self.index = 0
         self.crop_percentages = {
-            'top': 0.22,
-            'bottom': 0.195,
-            'left': 0.315,
+            'top': 0.185,
+            'bottom': 0.035,
+            'left': 0.27,
             'right': 0.015
         }
     

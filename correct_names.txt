@@ -1,0 +1,11 @@
+TEK "HJ"
+Sticker 'Metal Rat'
+TEK-9 Sticker
+KARAMBIT 'Scratch'
+AKR 'Night Fury'
+StatTrack USP 'Stone Cold'
+'Reforged' Weapon Case
+StatTrack F/S 'Ophidian'
+AKR 'Vermilion'
+
+

@@ -2,6 +2,12 @@
 easyocr_models/
 easyocr_models/craft_mlt_25k.pth
 easyocr_models/english_g2.pth
+main_screenshots
+processed_screenshots
+ready_screenshots
+json
+testscreen
+cropped_screenshots
 # Игнорируем виртуальное окружение
 venv/
 
