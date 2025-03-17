@@ -78,8 +78,30 @@ class CardDetector:
     def is_valid_image(self, filename):
         return filename.lower().endswith(('.png', '.jpg', '.jpeg'))
 
+    # def detect_stattrack(self, image):
+    #     """Обнаруживает оранжево-жёлтый прямоугольник как индикатор StatTrack."""
+    #     # Преобразуем в HSV для сегментации по цвету
+    #     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    #     # Уточнённый диапазон оранжево-жёлтого цвета
+    #     lower_orange = np.array([5, 100, 100])  # H: 5-25, S: 100-255, V: 100-255
+    #     upper_orange = np.array([25, 255, 255])
+    #     mask = cv2.inRange(hsv, lower_orange, upper_orange)
+
+    #     # Находим контуры
+    #     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    #     for contour in contours:
+    #         area = cv2.contourArea(contour)
+    #         x, y, w, h = cv2.boundingRect(contour)
+    #         # Проверяем, находится ли прямоугольник в левой нижней части и имеет подходящий размер
+    #         if (x < image.shape[1] // 3 and y > image.shape[0] // 2 and
+    #             area > 100 and area < 5000):  # Площадь должна быть разумной
+    #             return True
+    #     return False
+
     def detect_stattrack(self, image):
-        """Обнаруживает оранжево-жёлтый прямоугольник как индикатор StatTrack."""
+        """Обнаруживает оранжево-жёлтый прямоугольник как индикатор StatTrack и визуализирует результат."""
+        # Создаём копию изображения для визуализации
+        result_image = image.copy()
         # Преобразуем в HSV для сегментации по цвету
         hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
         # Уточнённый диапазон оранжево-жёлтого цвета
@@ -89,14 +111,23 @@ class CardDetector:
 
         # Находим контуры
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        is_detected = False
         for contour in contours:
             area = cv2.contourArea(contour)
             x, y, w, h = cv2.boundingRect(contour)
             # Проверяем, находится ли прямоугольник в левой нижней части и имеет подходящий размер
             if (x < image.shape[1] // 3 and y > image.shape[0] // 2 and
-                area > 100 and area < 5000):  # Площадь должна быть разумной
-                return True
-        return False
+                area > 100 and area < 5000):
+                # Рисуем зелёный прямоугольник вокруг найденной области
+                cv2.rectangle(result_image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                is_detected = True
+
+        # Сохраняем изображение с визуализацией
+        output_path = os.path.join(self.input_folder, f"stattrack_detection_result_.png")
+        cv2.imwrite(output_path, result_image)
+        print(f"Сохранено изображение с визуализацией: {output_path}")
+
+        return is_detected
 
     def recognize_card_content(self, image):
         if OCR_ENABLED:

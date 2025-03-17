@@ -22,5 +22,29 @@
         "Count(WT)": 701,
         "Price": 300.0,
         "image_name": "card_48.png"
+    },
+    {
+        "Name": "StatTrack USP 'Stone Cold'",
+        "Count(WT)": 63,
+        "Price": 5000.0,
+        "image_name": "card_1227.png"
+    },
+    {
+        "Name": "AKR 'Night Fury'",
+        "Count(WT)": 701,
+        "Price": 300.0,
+        "image_name": "card_48.png"
+    },
+    {
+        "Name": "StatTrack USP 'Stone Cold'",
+        "Count(WT)": 63,
+        "Price": 5000.0,
+        "image_name": "card_1227.png"
+    },
+    {
+        "Name": "StatTrack USP 'Stone Cold'",
+        "Count(WT)": 63,
+        "Price": 5000.0,
+        "image_name": "stattrack_detection_result_.png"
     }
 ]

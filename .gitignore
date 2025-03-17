@@ -5,9 +5,10 @@ easyocr_models/english_g2.pth
 main_screenshots
 processed_screenshots
 ready_screenshots
-json
+json/
 testscreen
 cropped_screenshots
+simple/
 # Игнорируем виртуальное окружение
 venv/
 
